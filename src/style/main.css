@@ -1,0 +1,79 @@
+body {
+    font-family: "Century Gothic";
+    margin: 0;
+    display: block;
+}
+
+#render-container {
+    margin: 8px auto;
+    text-align: center;
+}
+
+.controls-container {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 20px;
+}
+
+.controls-container > label {
+    width: 300px;
+    padding: 8px;
+}
+
+.footer-container {
+    font-size: 12px;
+    padding: 8px 28px;
+}
+
+#source-code-dialog {
+    visibility: hidden;
+    box-sizing: border-box;
+    position: fixed;
+    top: 16px;
+    left: 20%;
+    right: 20%;
+    bottom: 16px;
+    background-color: #eeeeee;
+    border-radius: 8px;
+    padding: 18px;
+    opacity: 0;
+
+    transition: opacity ease-out 0.3s, visibility ease-out 0.3s;
+}
+
+#source-code-dialog > pre {
+    height: calc(100% - 48px);
+}
+
+#source-code-dialog.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+#source-code {
+    overflow-x: scroll;
+    max-height: 100%;
+}
+
+a {
+    display: block;
+    color: #940000;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-left: auto;
+    padding: 8px;
+
+    transition: color ease-out 0.3s;
+}
+
+a:hover {
+    color: #000;
+}
+
+@media screen and (max-width: 1200px) {
+    #source-code-dialog {
+        left: 8px;
+        right: 8px;
+    }
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Optics simulator</title>
+    </head>
+    <body>
+        <div id="render-container"></div>
+        <div class="controls-container">
+            <label>
+                Rays count: <span id="numRaysDisplay">5</span>
+                <input type="range" min="5" max="100" value="5" id="numRays" />
+            </label>
+            <label>
+                Rays spread: <span id="raysAnglesDisplay">15</span>°
+                <input type="range" min="1" max="45" value="15" id="raysAngle" />
+            </label>
+            <label>
+                Refractive index of the sample: <span id="nSampleDisplay">1.3030</span>
+                <input type="range" min="10000" max="20000" value="13030" id="nSample" />
+            </label>
+            <label>
+                Refractive index of the prism: <span id="nPrismDisplay">1.5046</span>
+                <input type="range" min="10000" max="20000" value="15046" id="nPrism" />
+            </label>
+        </div>
+        <div class="footer-container">
+            <a href="https://github.com/paolo-projects/refractometer-simulation">https://github.com/paolo-projects/refractometer-simulation</a>
+            <p><a href="#" id="source-code-open">Source code</a></p>
+        </div>
+        <div id="source-code-dialog">
+            <pre><code class="javascript" id="source-code"><% const fs = require('fs'); const sourceCode = fs.readFileSync('./src/index.js'); %><%= sourceCode %></code></pre>
+            <a href="#" id="source-code-close">Close</a>
+        </div>
+    </body>
+</html>
