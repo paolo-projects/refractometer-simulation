@@ -13,3 +13,7 @@ export function getConfigParameter(key, defaultValue) {
 export function setConfigParameter(key, value) {
     localStorage.setItem(key, value);
 }
+
+export function unsetConfigParameter(key) {
+    localStorage.removeItem(key);
+}

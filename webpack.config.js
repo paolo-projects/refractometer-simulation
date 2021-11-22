@@ -59,10 +59,6 @@ module.exports = {
                         loader: "css-loader",
                     },
                     {
-                        // Then we apply postCSS fixes like autoprefixer and minifying
-                        loader: "postcss-loader",
-                    },
-                    {
                         // First we transform SASS to standard CSS
                         loader: "sass-loader",
                         options: {

@@ -1,5 +1,7 @@
 body {
-    font-family: "Century Gothic";
+    font-family: "Century Gothic", Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
     margin: 0;
     display: block;
 }
@@ -12,6 +14,7 @@ body {
 .controls-container {
     display: flex;
     flex-flow: row wrap;
+    align-items: center;
     padding: 20px;
 }
 
@@ -68,7 +71,26 @@ a {
 }
 
 a:hover {
-    color: #000;
+    color: #750000;
+}
+
+button {
+    font-family: "Century Gothic", Verdana, Geneva, Tahoma, sans-serif;
+    outline: none;
+    border: #ffffff solid 1px;
+    border-radius: 0.25em;
+    background-color: #101010;
+    color: #ffffff;
+    padding: 0.5em;
+    font-size: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    transition: background-color 0.3s ease-out;
+}
+
+button:not(:disabled):hover {
+    background-color: #202020;
 }
 
 @media screen and (max-width: 1200px) {

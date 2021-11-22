@@ -37,7 +37,7 @@ import * as PIXI from "pixi.js";
 import hljs from "highlight.js";
 import javascript from "highlight.js/lib/languages/javascript";
 import "highlight.js/styles/github.css";
-import { CONFIG_KEYS, getConfigParameter, setConfigParameter } from "./config";
+import { CONFIG_KEYS, getConfigParameter, setConfigParameter, unsetConfigParameter } from "./config";
 import "./style/main.css";
 
 /////////////////////// DEBUG UTILITITES DEFINITIONS ////////////////////////////////////////////
@@ -49,18 +49,25 @@ const printLine = (line) => console.log(`y = ${MathEq.mCoeff(line)} x + ${MathEq
 const nRaysEl = document.getElementById("numRays");
 const numRaysDisplayEl = document.getElementById("numRaysDisplay");
 nRaysEl.addEventListener("change", raysNumberChanged);
+nRaysEl.addEventListener("input", raysNumberChanged);
 
 const raysAngleEl = document.getElementById("raysAngle");
 const raysAnglesDisplayEl = document.getElementById("raysAnglesDisplay");
 raysAngleEl.addEventListener("change", raysAngleChanged);
+raysAngleEl.addEventListener("input", raysAngleChanged);
 
 const nSampleEl = document.getElementById("nSample");
 const nSampleDisplayEl = document.getElementById("nSampleDisplay");
 nSampleEl.addEventListener("change", nSampleChanged);
+nSampleEl.addEventListener("input", nSampleChanged);
 
 const nPrismEl = document.getElementById("nPrism");
 const nPrismDisplayEl = document.getElementById("nPrismDisplay");
 nPrismEl.addEventListener("change", nPrismChanged);
+nPrismEl.addEventListener("input", nPrismChanged);
+
+const resetButton = document.getElementById("resetButton");
+resetButton.addEventListener("click", resetScene);
 
 ///////////////////////////////// PARAMETERS ////////////////////////////////////////////////
 
@@ -229,6 +236,16 @@ function nPrismChanged(event) {
         clearTimeout(rerenderTimeout);
         rerenderTimeout = setTimeout(() => requestAnimationFrame(DrawScene), 25);
     }
+}
+
+function resetScene() {
+    unsetConfigParameter(CONFIG_KEYS.PRISM_RI);
+    unsetConfigParameter(CONFIG_KEYS.SAMPLE_RI);
+    unsetConfigParameter(CONFIG_KEYS.RAYS_NUM);
+    unsetConfigParameter(CONFIG_KEYS.RAYS_ANGLE);
+    unsetConfigParameter(CONFIG_KEYS.LIGHT_POS);
+
+    window.location.reload();
 }
 
 ///////////////////////////////////// RENDER FUNCTION /////////////////////////////////////////////////
